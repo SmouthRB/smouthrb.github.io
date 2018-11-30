@@ -11,7 +11,7 @@ body{
 }
 
 div.container-fluid{
-    border-bottom: 0.055vh solid black;
+    border-bottom: 1vh groove black;
 padding-bottom: 1em;
 }
 .row{
