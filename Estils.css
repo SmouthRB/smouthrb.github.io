@@ -1,0 +1,37 @@
+.nombre{
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+}
+p > i::before {
+    padding-right: 1rem;
+}
+
+body{
+    background-color: #f7f2f2;
+}
+
+div.container-fluid{
+    border-bottom: 0.055vh dashed black;
+padding-bottom: 1em;
+}
+.row{
+    margin-top: 1em;
+    margin-left: 0%;
+    margin-right: 0%; 
+}
+
+
+div.col-sm  div.row div.col-sm{
+    margin-left: 1em;
+    border-left: 1px solid gray;
+    padding-left: 1em; 
+}
+
+.img-thumbnail{
+    height: 25vh;
+    width: 50vh;
+}
+
+div.progress{
+    margin-top: 1em;
+}
