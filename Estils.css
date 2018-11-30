@@ -35,3 +35,8 @@ div.col-sm  div.row div.col-sm{
 div.progress{
     margin-top: 1em;
 }
+
+.cursos{
+    border-top: 0.05vh solid black;
+    margin-top: 1em
+}
