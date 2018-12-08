@@ -2,7 +2,9 @@ nav img{
     width: 5Vh;
 }
 
-
+li.nav-item.active a.nav-link{
+text-decoration-color: red;
+}
 
 /*Footer*/
 .footer{
