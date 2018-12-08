@@ -31,9 +31,12 @@ div.col-sm  div.row div.col-sm{
     padding-left: 1em; 
 }
 
-.img-thumbnail{
+.img{
     height: 25vh;
     width: 50vh;
+}
+.imgSkills{
+    width: 25vh;
 }
 
 div.progress{
@@ -113,19 +116,19 @@ a.socialIcon:hover, .socialHoverClass {
 	-webkit-transform: rotate(360deg);
 	-ms--transform: rotate(360deg);
 	transform: rotate(360deg);
-	-webkit-transition: all 0.2s;
-	-moz-transition: all 0.2s;
-	-o-transition: all 0.2s;
-	-ms-transition: all 0.2s;
-	transition: all 0.2s;
+	-webkit-transition: all 0.60s;
+	-moz-transition: all 0.60s;
+	-o-transition: all 0.60s;
+	-ms-transition: all 0.60s;
+	transition: all 0.60s;
 }
 .social-circle i {
 	color: #fff;
-	-webkit-transition: all 0.8s;
-	-moz-transition: all 0.8s;
-	-o-transition: all 0.8s;
-	-ms-transition: all 0.8s;
-	transition: all 0.8s;
+	-webkit-transition: all 0.60s;
+	-moz-transition: all 0.60s;
+	-o-transition: all 0.60s;
+	-ms-transition: all 0.60s;
+	transition: all 0.60s;
 }
 
 a {
