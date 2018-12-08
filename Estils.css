@@ -45,6 +45,8 @@ div.progress{
     margin-top: 1em
 }
 
+
+/* footer*/
 .footer{
     text-align: center; 
     background-color: white;
@@ -62,8 +64,6 @@ ul.social-network li {
 	margin: 0 5px;
 }
 
-
-/* footer social icons */
 .social-network a.icoInstagram:hover {
 	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
 }
@@ -79,11 +79,11 @@ ul.social-network li {
 .social-network a.icoGitHub:hover {
 	background-color:black;
 }
-.social-network a.icoLinkedin:hover {
-	background-color:#007bb7;
+.social-network a.icoTwitch:hover {
+	background-color:#4B367C;
 }
 .social-network a.icoInstagram:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
-.social-network a.icoYoutube:hover i, .social-network a.icoGitHub:hover i, .social-network a.icoLinkedin:hover i {
+.social-network a.icoYoutube:hover i, .social-network a.icoGitHub:hover i, .social-network a.icoTwitch:hover i {
 	color:#fff;
 }
 a.socialIcon:hover, .socialHoverClass {
