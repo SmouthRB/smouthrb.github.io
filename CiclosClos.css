@@ -19,8 +19,13 @@ h1, h2, h3, h4, h5, h6 {
  section>h2{
 	 margin-top: 1em; 
  } 
-
-
+section>h3{
+	margin-top: 1vh;
+}
+article+h3{
+	border-top: 0.5px solid gray;
+	padding:1em;
+}
 /*Footer*/
 .footer{
     text-align: center; 
