@@ -10,9 +10,11 @@ text-decoration-color: red;
 	height: 70%;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Pontano Sans', sans-serif;
 	text-align: center;
+
 }
  section>h2{
 	 margin-top: 1em; 
@@ -103,4 +105,12 @@ a.socialIcon:hover, .socialHoverClass {
 
 footer a {
  background-color: #D3D3D3;   
+}
+
+
+
+@media (max-width: 950px){
+ div.musk{
+	flex-basis: auto !important;
+}
 }
