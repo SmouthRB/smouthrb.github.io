@@ -109,8 +109,8 @@ footer a {
 
 
 
-@media (max-width: 950px){
+@media (max-width: 1050px){
  div.musk{
-	flex-basis: auto !important;
+	flex-basis: auto ;
 }
 }
