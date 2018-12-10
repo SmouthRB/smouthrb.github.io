@@ -14,7 +14,7 @@ text-decoration-color: red;
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Pontano Sans', sans-serif;
 	text-align: center;
-
+	
 }
  section>h2{
 	 margin-top: 1em; 
@@ -22,10 +22,15 @@ h1, h2, h3, h4, h5, h6 {
 section>h3{
 	margin-top: 1vh;
 }
-article+h3{
+article+h3, article.row+h4{
 	border-top: 0.5px solid gray;
 	padding:1em;
 }
+
+h3+article.row{
+	margin-bottom: 1em;
+}
+
 /*Footer*/
 .footer{
     text-align: center; 
