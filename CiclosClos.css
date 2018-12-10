@@ -30,6 +30,17 @@ article+h3, article.row+h4{
 h3+article.row{
 	margin-bottom: 1em;
 }
+.patata{
+	font-size: 110%;
+	text-align: center;
+}
+h2.patata{
+	font-size: 120%;
+}
+iframe.patata{
+	width:150vh;
+	 height:100vh;
+}
 
 /*Footer*/
 .footer{
@@ -123,4 +134,20 @@ footer a {
  div.musk{
 	flex-basis: auto ;
 }
+}
+
+@media (max-width: 1658px){
+	iframe.patata{
+		width: 50vh;
+		height: 40vh;
+	}
+}
+
+
+
+@media (max-width: 642px){
+	iframe.patata{
+		width: 40vh;
+		height: 30vh;
+	}
 }
