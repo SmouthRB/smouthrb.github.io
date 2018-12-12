@@ -129,7 +129,14 @@ footer a {
  background-color: #D3D3D3;   
 }
 
-
+@media (max-width: 421px){
+	nav	img{
+		display: none;
+	}
+	nav h1{
+		width: 50%;
+	}
+}
 
 @media (max-width: 1050px){
  div.musk{
