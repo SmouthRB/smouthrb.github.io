@@ -1,13 +1,22 @@
 .nombre{
     font-family: 'Titillium Web', sans-serif;
-    text-align: center;
+	text-align: center;
+ color: white;
+}
+.nombre-white{
+    font-family: 'Titillium Web', sans-serif;
+	text-align: center !important;
+	color: white;
+}
+p:not(.card-text){
+	color: white;
 }
 p > i::before {
     padding-right: 1rem;
 }
 
 body{
-    background-color: #f7ebeb;
+    background-color: rgb(35,35,35);
 }
 
 div.container-fluid{
