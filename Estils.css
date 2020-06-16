@@ -39,6 +39,10 @@ div.col-sm  div.row div.col-sm{
     border-left: 1px solid gray;
     padding-left: 1em; 
 }
+div.col-sm.Cursos div.row div.col-sm{
+	border-left: none;
+	text-align: center;
+}
 
 .img{
     height: 25vh;
