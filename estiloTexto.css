@@ -1,0 +1,169 @@
+h1.nombre,
+h2.nombre,
+h3.este {
+
+	text-align: center;
+}
+
+p>i::before {
+	padding-right: 1rem;
+}
+
+body {
+	margin: 10px;
+}
+
+div.container-fluid {
+	border-bottom: 0.55vh solid black;
+	padding-bottom: 3em;
+	margin-bottom: 3em;
+}
+
+main div:last-child.container-fluid {
+	border-bottom: none;
+	padding-bottom: 0em;
+}
+
+.row {
+	margin-top: 2em;
+	margin-left: 0%;
+	margin-right: 0%;
+}
+
+
+div.col-sm div.row div.col-sm {
+
+	border-left: 1px solid gray;
+	padding: auto;
+}
+
+div.col-sm.Cursos div.row div.col-sm {
+	border-left: none;
+	text-align: center;
+}
+
+.img {
+	height: 25vh;
+	width: 50vh;
+}
+
+.imgSkills {
+	width: 25vh;
+}
+
+div.progress {
+	margin-top: 1em;
+}
+
+div.row+div.row {
+	border-top: 0.05vh solid black;
+	margin-top: 2em;
+	padding-top: 1em;
+}
+
+div.row.noBorde {
+	border-top: none !important
+}
+
+/* footer*/
+.footer {
+	text-align: center;
+	background-color: white;
+	margin-top: 1em;
+	padding: 1em;
+}
+
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left: 0 !important;
+	padding: 0;
+}
+
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+.social-network a.icoInstagram:hover {
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.social-network a.icoFacebook:hover {
+	background-color: #3B5998;
+}
+
+.social-network a.icoTwitter:hover {
+	background-color: #33ccff;
+}
+
+.social-network a.icoYoutube:hover {
+	background-color: red;
+}
+
+.social-network a.icoGitHub:hover {
+	background-color: black;
+}
+
+.social-network a.icoTwitch:hover {
+	background-color: #4B367C;
+}
+
+.social-network a.icoInstagram:hover i,
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoYoutube:hover i,
+.social-network a.icoGitHub:hover i,
+.social-network a.icoTwitch:hover i {
+	color: #fff;
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+	color: #44BCDD;
+}
+
+.social-circle li a {
+	display: inline-block;
+	position: relative;
+	margin: 0 auto 0 auto;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+}
+
+.social-circle li i {
+	margin: 0;
+	line-height: 50px;
+	text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.60s;
+	-moz-transition: all 0.60s;
+	-o-transition: all 0.60s;
+	-ms-transition: all 0.60s;
+	transition: all 0.60s;
+}
+
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.60s;
+	-moz-transition: all 0.60s;
+	-o-transition: all 0.60s;
+	-ms-transition: all 0.60s;
+	transition: all 0.60s;
+}
+
+footer a {
+	background-color: #D3D3D3;
+}
