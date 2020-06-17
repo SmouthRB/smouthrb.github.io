@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 7</title>
+    <link rel="icon" type="image/png" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/33eb69b4-92f2-4e75-bf1f-827a704edd5d/d8mmd52-fe4c370a-ee49-498c-b75c-91ddaa487f8b.png">
+</head>
+<body>
+        <img id="imagen"src="" alt="Foto">
+        <p id="Piedefoto"></p>
+    <a href="Boletin.html">Volver al principal</a>
+    
+    <script>
+    var cambiar = 0;
+var imagen = document.getElementById("imagen");
+var piefoto = document.getElementById("Piedefoto");
+    
+setInterval(timmer,2000)
+
+    function timmer(){
+       switch (cambiar) {
+           case 0:
+            imagen.src= "https://www.imagen.com.mx/assets/img/imagen_share.png";
+            piefoto.textContent = "En esta imagen pone imagen";
+            cambiar ++;
+              
+               break;
+       
+           case 1:
+           imagen.src= "https://cdn-3.expansion.mx/dims4/default/f71603e/2147483647/strip/true/crop/800x450+0+0/resize/800x450!/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fd6%2F1c%2F5bc4a59b41c89bb2167cdd8cfa1d%2Famlo-fifi-rosa.gif";
+           piefoto.textContent = "hay un chino bailando";
+            cambiar=0;
+            break;
+       }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 21</title>
+    <link rel="icon" type="image/png" href="Imagenes/Ejercicio21.png">
+    <style>
+    .tablero{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 10% 10% 10%;
+        grid-gap: 20px; 
+        background-color: black;
+        padding: 10px;
+    }
+    div.tablero div{
+        background-color: aliceblue;
+        width: auto ;
+        height: auto;
+    }
+    .oculto{
+			display:none;
+		}
+
+	.visible{
+			display: block;
+	}
+    </style>
+</head>
+<body>
+    <div id="jugadores" class="visble"></div>
+    <div class="tablero">
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105rem" id="c0" onclick="box(0)"></div>
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c1" onclick="box(1)"></div>
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c2" onclick="box(2)"></div>
+
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c3" onclick="box(3)"></div>
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c4" onclick="box(4)"></div>
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c5" onclick="box(5)"></div>
+
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c6" onclick="box(6)"></div>
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c7" onclick="box(7)"></div>
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="caja" width="125em" Height="105em" id="c8" onclick="box(8)"></div>
+    </div>
+    <a href="Boletin.html">Volver atras</a>
+    <script>
+         var img= "https://vignette.wikia.nocookie.net/los-misterios-de-la-escuela-jonathan-k-perry/images/2/27/Equis_roja.png/revision/latest?cb=20140303195853&path-prefix=es";
+        var turno=1;
+        var arreglo = new Array();
+        var jug1=0;
+        var jug2=0;
+        var evento = 0;
+
+ for(i=0; i<=8; i++){
+
+  arreglo[i]=-1;
+
+ }
+     function box(pos){
+
+    if(arreglo[pos]==-1){
+     
+     if(turno==1){
+      if(img=='https://vignette.wikia.nocookie.net/los-misterios-de-la-escuela-jonathan-k-perry/images/2/27/Equis_roja.png/revision/latest?cb=20140303195853&path-prefix=es'){
+        document.getElementById('c'+pos).src=img;
+	arreglo[pos]=1;
+        turno=2;
+	img='https://images.emojiterra.com/mozilla/512px/2b55.png';
+        evento ++;
+      }
+      
+     }else if(turno==2){ 
+      if(img=='https://images.emojiterra.com/mozilla/512px/2b55.png'){
+       document.getElementById('c'+pos).src=img;
+       arreglo[pos]=0;
+       turno=1;
+       evento++;
+       img='https://vignette.wikia.nocookie.net/los-misterios-de-la-escuela-jonathan-k-perry/images/2/27/Equis_roja.png/revision/latest?cb=20140303195853&path-prefix=es' ;
+      }
+
+     }
+
+    }else{ alert('Posicion ocupada!'); }
+    
+
+
+ 
+  if(arreglo[0]==1 && arreglo[1]==1 && arreglo[2]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[0]==0 && arreglo[1]==0 && arreglo[2]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();
+  }
+
+  if(arreglo[3]==1 && arreglo[4]==1 && arreglo[5]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[3]==0 && arreglo[4]==0 && arreglo[5]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();
+  }
+
+  if(arreglo[6]==1 && arreglo[7]==1 && arreglo[8]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[6]==0 && arreglo[7]==0 && arreglo[8]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();
+  }
+
+  if(arreglo[0]==1 && arreglo[3]==1 && arreglo[6]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[0]==0 && arreglo[3]==0 && arreglo[6]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();
+  }
+
+  if(arreglo[1]==1 && arreglo[4]==1 && arreglo[7]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[1]==0 && arreglo[4]==0 && arreglo[7]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();
+  }
+ 
+  if(arreglo[2]==1 && arreglo[5]==1 && arreglo[8]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[2]==0 && arreglo[5]==0 && arreglo[8]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();
+  }
+ 
+  if(arreglo[0]==1 && arreglo[4]==1 && arreglo[8]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[0]==0 && arreglo[4]==0 && arreglo[8]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();
+  }
+  
+  if(arreglo[2]==1 && arreglo[4]==1 && arreglo[6]==1){
+	alert('gano X');
+        jug1=jug1+1;
+	reiniciar();
+  }
+
+  if(arreglo[2]==0 && arreglo[4]==0 && arreglo[6]==0){
+	alert('gano O');
+        jug2=jug2+1;
+	reiniciar();    
+  }
+  if (evento == 9){
+          alert("empate");
+                reiniciar();
+  }
+     }
+     function reiniciar(){
+
+document.getElementById('reset');
+        evento = 0;
+for(i=0; i<=8; i++){
+   document.getElementById('c'+i).src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC";
+}
+
+
+for(i=0; i<=8; i++){
+   arreglo[i]=-1;
+}
+
+}
+    </script>
+</body>
+</html>

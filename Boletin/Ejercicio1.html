@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		.principal{
+
+		}
+
+		.noticias{
+
+		}
+
+		.noticias nav.principal{
+
+		}
+
+		.resaltado{
+			font-size: 1.2em;
+			font-weight: bold;
+			background-color: aquamarine;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="principal">
+			<ul>
+				<li> Inicio </li>
+				<li> Portfolio </li>
+				<li> Servicios </li>
+			</ul>
+		</nav>
+		</header>
+	<!-- Sección principal-->
+	<main>
+		<section class="noticias">
+			<nav class="principal">
+				<ul id="lista">
+					<li> Articulo 1 </li>
+					<li> Articulo 2 </li>
+					<li> Articulo 3 </li>
+				</ul>
+			</nav>
+			<article>
+				<h2> Titular </h2>
+				<p> Desarrollo de la noticia</p>
+			</article>
+		</section>
+	</main>
+	<!-- Pie de pagina -->
+	<footer>
+		<small><a href="#"> Enlace a </a></small>
+	</footer>
+
+	<a href="Boletin.html">Volver al principal</a>
+</body>
+<script>
+
+	// Apartado A
+    var hijosbody = document.body.children;
+
+	console.log(hijosbody.length);
+
+	for (var i = 0; i < hijosbody.length; i++) {
+		console.log(hijosbody[i].nodeName);
+	}
+
+	// Apartado B
+	console.log(document.body.childNodes);
+	var nodos = document.body.childNodes;
+
+	//  Apartado C
+	console.log("Se consigue con .nodeType, por ejemplo el node de tipo text es "+ nodos[4].nodeType );
+
+	// apartado D
+var mein = document.querySelectorAll("body>main li");
+console.log(mein[0].nodeType);
+
+	// Apartado E
+console.log(document.getElementById('lista').parentElement.className);
+
+	// Apartado F
+	var objeto=prompt("Indica el elemento que  quieres saber cuantos hijos tiene");
+console.log("La clase que has legedo tiene "+ conseguirElementos(objeto)+ " hijos");
+
+function conseguirElementos(x){
+	var objetos = document.querySelectorAll(x);
+	return objetos.length
+}
+
+</script>
+</html>

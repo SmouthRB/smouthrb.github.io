@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 20</title>
+    <style>
+     .error{
+        display: inline;
+        color: red;
+
+    }
+    .oculto{
+        display: none
+    }</style>
+</head>
+<body>
+        <button onclick="Enviar()">Eliminar</button>
+        <input type="text" name="Texto" id="Texto">
+        <label for="Texto" class="oculto" id="aviso">Escribe algo</label>
+    <ul style="text-align:center; list-style-type: none;" id="Objeto">
+        <li>Minecraft</li>
+        <li>League of legends</li>
+        <li>Isaac</li>
+        <li>El lloron</li>
+        <li>Apex Legends</li>
+        <li>Guacamele</li>
+        <li>Mario</li>
+        <li>Hollow Knight</li>
+        <li>Waluigi</li>
+        <li>Street Fighter</li>
+        <li>Fornite</li>
+        <li>Overwatch</li>
+        <li>Adventure Capitalist</li>
+        <li>Paper Pls</li>
+        <li>Farcry 4</li>
+        <li>Hytale</li>
+        <li>PUBG</li>
+        <li>Smash</li>
+        <li>Rainbow</li>
+        <li>Super MeatBoy</li>
+        <li>CSGO</li>
+        <li>Halo</li>
+        <li>GTA</li>
+    </ul>
+
+    <a href="Boletin.html">Volver al Menu</a>
+    <script>
+    lista = document.getElementById("Objeto");
+    aviso=document.getElementById("aviso")
+        function Enviar(){
+        texto = document.getElementById("Texto");
+        if(texto.value ==""){    
+            if(aviso.className=="oculto"){
+                aviso.className = "error"; 
+                texto.style.borderColor ="red";
+            }
+        }
+        else{
+            if(aviso.className=="error"){
+                aviso.className="oculto";
+                texto.style.borderColor ="inherit";
+            }
+            var descendientes = lista.childNodes;
+            for (let i = 0; i < descendientes.length; i++) {
+                var hijo = descendientes[i];
+                if (hijo.textContent == texto.value){
+                    lista.removeChild(hijo);
+                    break
+                }
+            }
+    }    
+            
+       
+}
+    </script>
+</body>
+</html>

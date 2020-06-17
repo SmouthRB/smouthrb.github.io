@@ -1,0 +1,573 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Snake</title>
+<style type="text/css">
+            @import url("https://fonts.googleapis.com/css?family=VT323");
+            
+            ::selection {color:#FFFFFF; background:transparent;}
+            ::-moz-selection {color:#FFFFFF; background:transparent;}
+            
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: "VT323";
+            }
+            body{
+                /* The image used */
+                background-image: url("https://previews.123rf.com/images/scenery1/scenery11509/scenery1150900364/45518937-hermoso-campo-de-f%C3%BAtbol-de-campo-de-f%C3%BAtbol-de-textura-de-hierba-verde-.jpg");
+                /* Set a specific height */
+                height: 500px; 
+                /* Create the parallax scrolling effect */
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .wrap{
+                margin-left: auto;
+                margin-right: auto;
+            }
+            header{
+                width: 340px;
+                font-size: 0;
+            }
+            canvas{
+                display: none;
+                border-style: solid;
+                border-width: 10px;
+                border-color: #FFFFFF;
+            }
+            canvas:focus{
+                outline: none;
+            }
+            
+            /* Top Styles */
+            h1{
+                display: inline-block;
+                width: 100px;
+                font-size: 32px;
+                color: #FFFFFF;
+            }
+            .puntos{
+                display: inline-block;
+                width: 240px;
+                font-size: 20px;
+                color: #FFFFFF;
+                text-align: right;
+            }
+            .puntos_value{
+                font-size: inherit;
+            }
+            
+            
+            
+            /* All Ventanas style */
+            #gameover a, #setting a, #menu a{
+                display: block;
+            }
+       
+            #gameover a, #setting a:hover, #menu a:hover{
+                cursor: pointer;
+            }
+            
+            #gameover a:hover::before, #setting a:hover::before, #menu a:hover::before{
+                content: ">";
+                margin-right: 10px;
+            }
+            
+            /* Menu Ventana Style */
+            #menu{
+                display: block;
+                width: 340px;
+                padding-top: 95px;
+                padding-bottom: 95px;
+                font-size: 40px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                color: #FFF;
+            }
+            
+            #menu h2{
+                -webkit-animation: logo-ani 1000ms linear infinite;
+                        animation: logo-ani 1000ms linear infinite;
+                margin-bottom: 30px;
+                
+            }
+            
+            #menu a{
+                font-size: 30px;
+            }
+            
+            @-webkit-keyframes logo-ani{
+               50%{-webkit-transform: scale(1.3,1.3);}
+              100%{-webkit-transform: scale(1.0,1.0);}
+            }
+
+            @keyframes logo-ani{
+               50%{transform: scale(1.3,1.3);}
+              100%{transform: scale(1.0,1.0);}
+            }
+            
+            
+            /* Game Over Ventana Style */
+            
+            #gameover{
+                display: none;
+                width: 340px;
+                padding-top: 95px;
+                padding-bottom: 95px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 30px;
+                color: #FFF;
+            }
+            
+            #gameover p{
+                margin-top: 25px;
+                font-size: 20px;
+            }
+            
+            /* Settings Ventana Style */
+            #setting{
+                display: none;
+                width: 340px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 85px;
+                padding-bottom: 85px;
+                font-size: 30px;
+                color: #FFF;
+                text-align: center;
+            }
+            
+            #setting h2{
+                margin-bottom: 15px;
+            }
+            
+            #setting p{
+                margin-top: 10px;
+            }
+            
+            #setting input{
+                display:none;
+            }
+            
+            #setting label{
+                cursor: pointer;
+            }
+            
+            #setting input:checked + label{
+                background-color: #FFF;
+                color: #000;
+            }
+</style>
+
+<body>
+	
+<header class="wrap">
+                <h1>Snake</h1>
+                <p class="puntos">Puntos: <span id="puntos_value">0</span></p>
+            </header>
+            <canvas class="wrap" id="snake" width="320" height="320" tabindex="1" ></canvas>
+        
+            <!--Ventana  Fin del juego -->
+            <div id="gameover" style="background-color: black">
+                <h2>Game Over</h2>
+                <p>Pulsa <span style="background-color: #FFFFFF; color: #000000">espacio</span>para jugar</p>
+                <a id="newgame_gameover">Otra Vez</a>
+                <a id="setting_gameover">Ajustes</a>
+            </div>
+        
+            <!-- Ventana de ajuste -->
+            <div id="setting" style="background-color: black">
+                <h2>Ajustes</h2>
+                
+                <a id="newgame_setting">Jugar</a>
+                
+                <p>Dificultad:
+                    <input id="speed1" type="radio" name="speed" value="120" checked/>
+                    <label for="speed1">Muy facil</label>
+                    <input id="speed2" type="radio" name="speed" value="75"/>
+                    <label for="speed2">Normal</label>
+                    <input id="speed3" type="radio" name="speed" value="35"/>
+                    <label for="speed3">Soy un proo</label>
+                </p>
+                
+                <p>Muro:
+                    <input id="Paredon" type="radio" name="Pared" value="1" checked/>
+                    <label for="Paredon">On</label>
+                    <input id="Paredoff" type="radio" name="Pared" value="0"/>
+                    <label for="Paredoff">Off</label>
+                </p>
+
+            </div>
+        
+            <!-- Pantalla menu principal -->
+            <div id="menu" style="background-color: black">
+                <h2>Snake</h2>
+
+                <a id="newgame_menu">Juego Nuevo</a>
+                <a id="setting_menu">Ajustes</a>
+            </div>
+
+            <audio id="Banda" src="Sonidos/ost.wav" loop></audio>
+            <audio id="Fin" src="Sonidos/fin.wav"></audio>
+            <audio id="morder" src="Sonidos/comer.wav"></audio>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+
+<script type="text/javascript">
+
+(function(){  
+    /////////////////////////////////////////////////////////////
+    
+    // Canvas & Context
+    var canvas;
+    var ctx;
+    
+    // Snake
+    var snake;  
+    var snake_dir;
+   var snake_next_dir;
+    var snake_speed;
+    
+    // comida
+    var comida = {x: 0, y: 0, color:"#FF0000"};
+
+    // puntos
+    var puntos;
+    
+    // Pared
+    var Pared;
+    
+    // HTML Elements
+    var Juego;
+    var menu;
+    var VentanaOpciones;
+    var ventanaFin;
+    var BotonJuegoNuevo;
+    var BotonOpcionesJuegoNuevo;
+    var BotonFinJuegoNuevo;
+    var BotonMenuOpciones;
+    var BotonFinOpciones;
+    var ele_puntos;
+    var speed_setting;
+    var Pared_setting;
+    
+    //Musica
+    var morder = document.getElementById("morder");
+    var banda =document.getElementById("Banda");
+    var fin = document.getElementById("Fin");
+    
+    /////////////////////////////////////////////////////////////
+
+    var activeDot = function(x, y){
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(x * 10, y * 10, 10, 10);
+    }
+    
+    
+    /////////////////////////////////////////////////////////////
+
+    var changeDir = function(key){
+    key= key.toLowerCase();
+        if(key == "w" && snake_dir != 2){
+            snake_next_dir = 0;
+        }else{
+        
+        if (key == "d" && snake_dir != 3){
+            snake_next_dir = 1;
+        }else{
+        
+        if (key == "s" && snake_dir != 0){
+            snake_next_dir = 2;
+        }else{
+            
+        if(key == "a" && snake_dir != 1){
+            snake_next_dir = 3;
+        } } } }
+        
+    }
+    
+    /////////////////////////////////////////////////////////////
+
+    var addcomida = function(){
+        comida.x = Math.floor(Math.random() * ((canvas.width / 10) - 1));
+        comida.y = Math.floor(Math.random() * ((canvas.height / 10) - 1));
+        for(var i = 0; i < snake.length; i++){
+            if(checkBlock(comida.x, comida.y, snake[i].x, snake[i].y)){
+                addcomida();
+            }
+        }
+    }
+    
+    /////////////////////////////////////////////////////////////
+
+    var checkBlock = function(x, y, _x, _y){
+        return (x == _x && y == _y) ? true : false;
+    }
+    
+    /////////////////////////////////////////////////////////////
+    
+    var altpuntos = function(puntos_val){
+        ele_puntos.innerHTML = String(puntos_val);
+    }
+    
+    /////////////////////////////////////////////////////////////
+
+    var mainLoop = function(){
+        
+            var _x = snake[0].x;
+            var _y = snake[0].y;
+      snake_dir = snake_next_dir;
+
+            // 0 - Up, 1 - Right, 2 - Down, 3 - Left
+            switch(snake_dir){
+                case 0: _y--; break;
+                case 1: _x++; break;
+                case 2: _y++; break;
+                case 3: _x--; break;
+            }
+
+            snake.pop();
+            snake.unshift({x: _x, y: _y});
+
+        
+        // --------------------
+
+        // Pared
+        
+            if(Pared == 1){
+            // On
+                if (snake[0].x < 0 || snake[0].x == canvas.width / 10 || snake[0].y < 0 || snake[0].y == canvas.height / 10){
+                    showVentana(3);
+                    banda.pause();
+                    fin.play();
+                    return;
+                }
+            }else{
+            // Off
+                for(var i = 0, x = snake.length; i < x; i++){
+                    if(snake[i].x < 0){
+                        snake[i].x = snake[i].x + (canvas.width / 10);
+                    }
+                    if(snake[i].x == canvas.width / 10){
+                        snake[i].x = snake[i].x - (canvas.width / 10);
+                    }
+                    if(snake[i].y < 0){
+                        snake[i].y = snake[i].y + (canvas.height / 10);
+                    }
+                    if(snake[i].y == canvas.height / 10){
+                        snake[i].y = snake[i].y - (canvas.height / 10);
+                    }
+                }
+            }
+        
+        // --------------------
+    
+        // Autophagy death
+            for(var i = 1; i < snake.length; i++){
+                if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+                    showVentana(3);
+                    banda.pause();
+                    fin.play();
+                    return;
+                }
+            }
+      
+        // --------------------
+        
+      // Eat comida
+            if(checkBlock(snake[0].x, snake[0].y, comida.x, comida.y)){
+                snake[snake.length] = {x: snake[0].x, y: snake[0].y};
+                puntos += 1;
+                altpuntos(puntos);
+                morder.play();
+                addcomida();
+                activeDot(comida.x, comida.y);
+            }
+        
+        // --------------------
+
+            ctx.beginPath();
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // --------------------
+
+            for(var i = 0; i < snake.length; i++){
+                activeDot(snake[i].x, snake[i].y);
+            }
+        
+        // --------------------
+
+            activeDot(comida.x, comida.y);
+        
+    // Debug
+    //document.getElementById("debug").innerHTML = snake_dir + " " + snake_next_dir + " " + snake[0].x + " " + snake[0].y;    
+
+            setTimeout(mainLoop, snake_speed);
+    }
+    
+    /////////////////////////////////////////////////////////////
+
+    var newGame = function(){
+        
+        showVentana(0);
+        Juego.focus();
+        
+        snake = [];
+        for(var i = 4; i >= 0; i--){
+            snake.push({x: i, y: 15});
+        }
+      
+        snake_next_dir = 1;
+        
+        puntos = 0;
+        altpuntos(puntos);
+        
+        addcomida();
+        banda.play();
+        canvas.onkeydown = function(evt) {
+            evt = evt || window.event;
+            changeDir(String.fromCharCode(evt.keyCode));
+        }
+        mainLoop();
+                
+    }
+    
+    /////////////////////////////////////////////////////////////
+    
+    // Change the snake speed...
+    // 150 = slow
+    // 100 = normal
+    // 50 = fast
+    var setSnakeSpeed = function(speed_value){
+        snake_speed = speed_value;
+    }
+    
+    /////////////////////////////////////////////////////////////
+    var setPared = function(Pared_value){
+        Pared = Pared_value;
+        if(Pared == 0){Juego.style.borderColor = "#606060";}
+        if(Pared == 1){Juego.style.borderColor = "#FFFFFF";}
+    }
+     
+    /////////////////////////////////////////////////////////////
+    
+    // 0 for the game
+    // 1 for the main menu
+    // 2 for the settings Ventana
+    // 3 for the game over Ventana
+    var showVentana = function(Ventana_opt){
+        switch(Ventana_opt){
+                
+            case 0:  Juego.style.display = "block";
+                     menu.style.display = "none";
+                     VentanaOpciones.style.display = "none";
+                     ventanaFin.style.display = "none";
+                     break;
+                
+            case 1:  Juego.style.display = "none";
+                     menu.style.display = "block";
+                     VentanaOpciones.style.display = "none";
+                     ventanaFin.style.display = "none";
+                     break;
+                
+            case 2:  Juego.style.display = "none";
+                     menu.style.display = "none";
+                     VentanaOpciones.style.display = "block";
+                     ventanaFin.style.display = "none";
+                     break;
+                
+            case 3: Juego.style.display = "none";
+                    menu.style.display = "none";
+                    VentanaOpciones.style.display = "none";
+                    ventanaFin.style.display = "block";
+                    break;
+        }
+    }
+        
+    /////////////////////////////////////////////////////////////
+        
+    window.onload = function(){
+        
+        canvas = document.getElementById("snake");
+        ctx = canvas.getContext("2d");
+               
+            // Ventanas
+            Juego = document.getElementById("snake");
+            menu = document.getElementById("menu");
+            ventanaFin = document.getElementById("gameover");
+            VentanaOpciones = document.getElementById("setting");
+        
+            // Buttons
+            BotonJuegoNuevo = document.getElementById("newgame_menu");
+            BotonOpcionesJuegoNuevo = document.getElementById("newgame_setting");
+            BotonFinJuegoNuevo = document.getElementById("newgame_gameover");
+            BotonMenuOpciones = document.getElementById("setting_menu");
+            BotonFinOpciones = document.getElementById("setting_gameover");
+        
+            // etc
+            ele_puntos = document.getElementById("puntos_value");
+            speed_setting = document.getElementsByName("speed");
+            Pared_setting = document.getElementsByName("Pared");
+        
+        // --------------------
+
+        BotonJuegoNuevo.onclick = function(){newGame();};
+        BotonFinJuegoNuevo.onclick = function(){newGame();}; 
+        BotonOpcionesJuegoNuevo.onclick = function(){newGame();}; 
+        BotonMenuOpciones.onclick = function(){showVentana(2);};
+        BotonFinOpciones.onclick = function(){showVentana(2)};
+
+        setSnakeSpeed(150);
+        setPared(1);
+
+        showVentana("menu");
+        
+        // --------------------
+        // Settings
+        
+            // speed
+            for(var i = 0; i < speed_setting.length; i++){
+                speed_setting[i].addEventListener("click", function(){
+                    for(var i = 0; i < speed_setting.length; i++){
+                        if(speed_setting[i].checked){
+                            setSnakeSpeed(speed_setting[i].value);
+                        }
+                    }
+                });
+            }
+        
+            // Pared
+            for(var i = 0; i < Pared_setting.length; i++){
+                Pared_setting[i].addEventListener("click", function(){
+                    for(var i = 0; i < Pared_setting.length; i++){
+                        if(Pared_setting[i].checked){
+                            setPared(Pared_setting[i].value);
+                        }
+                    }
+                });
+            }
+
+        document.onkeydown = function(evt){
+            if(ventanaFin.style.display == "block"){
+                evt = evt || window.event;
+                if(evt.keyCode == 32){
+                    newGame();
+                }
+            }
+        }
+    }
+
+})();
+
+
+  </script>
+	
+</body>      

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    
+        <div id="informacion" style="border:thin solid silver; padding:.5em">
+                <p>Lorem ipsum dolor sit amet, <a href="http://prueba">consectetuer adipiscing
+                elit</a>. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu,
+                consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc,
+                posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id,
+                aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit
+                convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus
+                non, mi. <a href="http://prueba2">Fusce porta</a>. Duis pellentesque, felis eu
+                adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non
+                dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis
+                scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac,
+                felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan
+                metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu
+                odio. Praesent id metus.</p>
+                <a id="enlace" href="#"> Seguir leyendo </a>
+                <p class="oculto">Aenean at nisl. Maecenas egestas dapibus odio. Vestibulum ante ipsum primis
+                in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consequat
+                auctor diam. <a href="http://prueba">Ut bibendum blandit est</a>. Curabitur
+                vestibulum. Nunc malesuada porttitor sapien. Aenean a lacus et metus venenatis
+                porta. Suspendisse cursus, sem non dapibus tincidunt, lorem magna porttitor
+                felis, id sodales dolor dolor sed urna. Sed rutrum nulla vitae tellus. Sed quis
+                eros nec lectus tempor lacinia. Aliquam nec lectus nec neque aliquet dictum.
+                Etiam <a href="http://prueba3">consequat sem quis massa</a>. Donec aliquam
+                euismod diam. In magna massa, mattis id, pellentesque sit amet, porta sit amet,
+                lectus. Curabitur posuere. Aliquam in elit. Fusce condimentum, arcu in
+                scelerisque lobortis, ante arcu scelerisque mi, at cursus mi risus sed
+                tellus.</p>
+            </div>
+
+    </div class="row">
+<div class="interior">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum unde recusandae minus beatae sunt nostrum vitae enim assumenda maxime exercitationem pariatur provident explicabo, sapiente iure nam, tempora amet mollitia! Quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sequi explicabo sapiente placeat. Velit nemo, pariatur perferendis sint ratione voluptatibus officiis architecto delectus quae modi saepe, aliquam aut facilis quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis officia omnis similique, dolores a aspernatur saepe ducimus cupiditate expedita dolor numquam? Labore facilis facere, aperiam ea veritatis nulla necessitatibus minima!</p>
+</div>
+
+<article>
+	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</article>
+</div>
+
+<div class="interior">
+
+	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    
+</div>
+<button onclick="CambiarEstilos()">Cambiar</button>
+<a href="Boletin.html">Volver atras</a>
+</body>
+    <script>
+
+        function CambiarEstilos() {
+            var parrafos = document.body.getElementsByTagName("p");
+            for (let index = 0; index < parrafos.length; index++) {
+                parrafos[index].style.fontSize = "2.5vh";  
+            }
+            var cajas = document.body.getElementsByClassName("interior");
+            for (let index = 0; index < cajas.length; index++) {
+               cajas[index].style.backgroundColor  = "cyan";  
+            }
+            var enlacer = document.body.getElementsByTagName("a");
+            for (let index = 0; index < enlacer.length; index++) {
+               enlacer[index].style.textDecoration = "none";  
+               }
+        }
+    </script>
+</html>

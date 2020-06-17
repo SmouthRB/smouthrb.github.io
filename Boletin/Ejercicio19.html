@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 19</title>
+    <style>
+    .error{
+        display: inline;
+        color: red;
+
+    }
+    .oculto{
+        display: none
+    }
+    </style>
+</head>
+<body>
+    <button onclick="Enviar()">Enviar</button>
+    <input type="text" name="Texto" id="Texto">
+    <label for="Texto" class="oculto" id="aviso">Escribe algo</label>
+    <ul id="Objeto">
+
+    </ul>
+    <a href="Boletin.html">Volver al Inicio</a>
+</body>
+<script>
+  lista = document.getElementById("Objeto");
+  aviso=document.getElementById("aviso")
+function Enviar(){
+texto = document.getElementById("Texto");
+if(texto.value ==""){
+    if(aviso.className=="oculto"){
+        aviso.className = "error";
+        texto.style.borderColor ="red";
+    }
+}
+    else{
+        if(aviso.className=="error"){
+            aviso.className="oculto";
+            texto.style.borderColor ="inherit";
+        }
+        var nuevo = document.createElement("li");
+        var contenido = document.createTextNode(texto.value);
+        nuevo.appendChild(contenido);
+        lista.appendChild(nuevo);
+    }
+}
+</script>
+</html>

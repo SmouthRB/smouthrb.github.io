@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+		<html lang="es">
+<head>
+	<title>Ejercicio 5</title>
+	<style type="text/css">
+		
+		.principal{
+
+		}
+
+		.noticias{
+
+		}
+
+		.noticias nav.principal{
+
+		}
+
+		.resaltado{
+			font-size: 1.2em;
+			font-weight: bold;
+			background-color: aquamarine;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="principal">
+			<ul>
+				<li> Inicio </li>
+				<li> Portfolio </li>
+				<li> Servicios </li>
+			</ul>
+		</nav>
+		</header>
+	<!-- Sección principal-->
+	<main>
+		<section class="noticias">
+            	
+            <nav class="principal">
+				<ul id="lista">
+					<li> Articulo 1 </li>
+					<li> Articulo 2 </li>
+					<li> Articulo 3 </li>
+				</ul>
+			</nav>
+		<article>
+				<h2> Titular </h2>
+				<p> Desarrollo de la noticia</p>
+            </article>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi exercitationem quisquam quo, voluptates itaque id tempora quis quidem eos, accusamus delectus, ad assumenda ipsam blanditiis totam! Ipsam corrupti nisi fugiat?</p>
+            </article>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut deserunt hic aut, non ab, ipsa nostrum dolore neque rem magni eius velit vitae ratione unde fugiat blanditiis atque dolores tempora!</p>
+            </article>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laudantium vitae enim eius dignissimos vero vel quos commodi itaque excepturi debitis id voluptate quo, unde eum nam obcaecati repellendus fugiat.</p>
+            </article>
+        </section>
+        <section>
+            <article>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae laboriosam soluta consequatur ex sit iusto recusandae culpa quisquam facilis possimus veritatis corporis, neque odio nobis fugit debitis quasi dolor. Fugit!</p>
+            </article>
+        <article>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eum cumque ratione in labore? Rerum, obcaecati facilis deleniti veritatis nisi inventore velit id veniam autem sunt exercitationem aspernatur, temporibus nam.</p>
+        </article>
+        </section>
+        <section>
+                <article>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae laboriosam soluta consequatur ex sit iusto recusandae culpa quisquam facilis possimus veritatis corporis, neque odio nobis fugit debitis quasi dolor. Fugit!</p>
+                </article>
+            <article>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eum cumque ratione in labore? Rerum, obcaecati facilis deleniti veritatis nisi inventore velit id veniam autem sunt exercitationem aspernatur, temporibus nam.</p>
+            </article>
+            </section>
+	</main>
+	<!-- Pie de pagina -->
+	<footer>
+		<small><a href="#"> Enlace a </a></small>
+	</footer>
+    <p id="elemento"></p>
+	<a href="Boletin.html">Volver al principal</a>
+</body>
+<script>
+var resaltar = document.body.querySelectorAll("section article:first-of-type");
+for (i= 0; i < resaltar.length; i++) {
+    resaltar[i].className = "resaltado";
+}
+</script>
+</html>

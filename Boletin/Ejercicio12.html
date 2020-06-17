@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 12</title>
+    <style>
+    body{
+        text-align: center;
+    }
+    body a{
+        text-align: inherit;
+    }
+    </style>
+</head>
+<body>
+    <h2 id="ValTecla"></h2>
+    <button id="CodTecla"></button>
+    <br>
+    <a href="Boletin.html">Volver atras</a>
+    <script>
+        document.onkeydown=getTecla;
+
+function getTecla(evento){
+
+	var codigo = evento.keyCode;
+	var caracter = evento.charCode;
+    document.getElementById("ValTecla").textContent =String.fromCharCode(codigo);
+    document.getElementById("CodTecla").textContent = codigo;
+
+}
+
+ 
+
+    </script>
+</body>
+</html>

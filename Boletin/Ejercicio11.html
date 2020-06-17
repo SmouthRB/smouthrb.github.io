@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Ejercicio 11</title>
+    <link rel="icon" type="image/png" href="Imagenes/Calculadora.png">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+      
+      body{
+        background: #c2c2c2;
+      }
+    .oculto{
+			display:none;
+		}
+
+		.visible{
+			display: block;
+      text-align: center;
+    }
+        form {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: solid 1px #c2c2c2;
+  padding-bottom: 10px;
+  margin: auto;
+  background: grey;
+}
+input[type=textfield] {
+    width: 75%;
+    padding: 16px 32px;
+    font-size: 16px;
+    margin: 8px 0;
+    border: 1px solid silver;
+    border-radius: 1px;
+    text-align: left;
+    color: #3432f3;
+    background: #ccc;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #9CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    font-size: 15px;
+    min-width: 21%;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input[type=button].Resultado{
+      background-color: #001fff;
+    }
+input[type=reset].borrar{
+  background-color: red;
+}
+input[type=button].operador{
+  background-color: #8daa6f;
+}
+input[type=button]#instrucciones{
+  background-color: chartreuse;
+}
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #333;
+}
+
+
+ </style>   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+        <div id=>
+        <form name="calc">
+                <h2>BraisO</h2>
+                <input type="button" id="instrucciones" onclick="mostrar()" value="Instrucciones">
+                <br>
+                <input type="textfield" name="pantalla" value="">                  
+                <br>
+                <input type="button" value="1" onClick="document.calc.pantalla.value+='1'">
+                <input type="button" value="2" onClick="document.calc.pantalla.value+='2'">
+                <input type="button" value="3" onClick="document.calc.pantalla.value+='3'">
+                <input type="reset"  class="borrar" value="reset">
+              
+
+                <br>
+                <input type="button" value="4" onClick="document.calc.pantalla.value+='4'">
+                <input type="button" value="5" onClick="document.calc.pantalla.value+='5'">
+                <input type="button" value="6" onClick="document.calc.pantalla.value+='6'">
+             
+                <input type="button" class="operador" value="+" onClick="document.calc.pantalla.value+='+'">
+                <br>
+                <input type="button" value="7" onClick="document.calc.pantalla.value+='7'">
+                <input type="button" value="8" onClick="document.calc.pantalla.value+='8'">
+                <input type="button" value="9" onClick="document.calc.pantalla.value+='9'">
+               
+                <input type="button" class="operador"  value="-" onClick="document.calc.pantalla.value+='-'">
+                <br>
+                <input type="button" value="0" onClick="document.calc.pantalla.value+='0'">
+                
+                <input type="button" value="." onClick="document.calc.pantalla.value+='.'">
+                <input type="button" class="Resultado" value="=" onClick="document.calc.pantalla.value=eval(document.calculator.ans.value)">
+                <input type="button" class="operador"  value="*" onClick="document.calc.pantalla.value+='*'">
+                <br>
+                <input type="button" class="operador" value="(" onClick="document.calc.pantalla.value+='('">
+                <input type="button" class="operador"  value=")" onClick="document.calc.pantalla.value+=')'">
+                <input type="button" class="Resultado" value="√" onClick="document.calc.pantalla.value = Math.sqrt(document.calc.pantalla.value)">
+                <input type="button" class="operador"  value="/" onClick="document.calc.patalla.value+='/'">
+              </form> 
+            </div> 
+            <div id="Texto" class="oculto">
+              <p>El boton <span style="color:red">Reset</span> borra la pantalla</p>
+              <p>Los botones de <span style="color:#8daa6f">color</span></span> son operadores</p>
+              <p>Los botones de <span style="color:#001fff">color</span> te dan un el resultado, en el caso del boton  √ te calcula la raiz de la operacion</p>
+            </div>
+            <a href="Boletin.html">Volver atras</a>
+    <script>
+          var texto = document.getElementById("Texto");
+        function mostrar(){          
+            if(texto.className =="oculto"){
+              texto.className ="visible";            
+            }else if(texto.className=="visible"){
+              texto.className = "oculto";
+            }
+        }
+
+
+    
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

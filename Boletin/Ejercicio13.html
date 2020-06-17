@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 13</title>
+    <link rel="shortcut icon" href="https://pngimage.net/wp-content/uploads/2018/06/move-png.png" type="image/x-icon">
+    <style>
+        body{
+            position: relative;
+        }
+        a{
+            position: absolute;
+            display: block;
+            top: 0px;
+        }
+    </style>
+</head>
+<body onload="Iniciar()">
+    <a id="cuadrado" href="Boletin.html">Volver atras</a>
+
+<script>
+var cosa = document.getElementById("cuadrado");
+function Iniciar() {
+function moveup() {
+cosa.style.top = cosa.offsetTop - 5 +"px";
+}
+
+function movedown() {
+    cosa.style.top = cosa.offsetTop + 5 +"px";   
+}
+
+function moveleft() {
+    cosa.style.left = cosa.offsetLeft - 5 +"px";
+}
+
+function moveright() {
+    cosa.style.left = cosa.offsetLeft + 5 +"px";   
+}    
+
+document.onkeydown=getTecla;
+function getTecla(evento) {
+    var codigo = evento.keyCode;
+
+    switch (String.fromCharCode(codigo)) {
+        case "w":
+            moveup();
+        break;
+        
+        case "W":
+            moveup();
+        break;
+        case "a":
+            moveleft();
+        break;
+        case "A":
+            moveleft();
+        break;
+        case "s":
+            movedown();
+        break;
+        case"S":
+            movedown();
+        break;
+        case "d":
+                moveright();
+        break;
+        case "D":
+                moveright();
+        break;
+        }
+
+
+    }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio6</title>
+    <html lang="es">
+	<style type="text/css">
+
+		.row{
+			font-family: Arial;
+			font-size: 1.1em;
+			line-height: 1.2;
+		}
+		.responsive {
+			width:90%;
+			color: red;
+		}
+
+		.centrado{
+			width: 90%;
+			margin:0 auto;
+		}
+
+	</style>
+</head>
+<body>
+<div class="row">
+<article>
+	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</article>
+</div>
+
+<div class="row">
+
+	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</div>
+
+<a href="Boletin.html">Volver al principal</a>
+<script type="text/javascript">
+var responsive = document.body.querySelectorAll("div.row *:first-child");
+for (let i = 0; i < responsive.length; i++) {
+    if (responsive[i].nodeName == 'ARTICLE'){
+        responsive[i].className ='centrado';
+        responsive[i].className +=' responsive';
+    }
+    else{
+        responsive[i].className ='responsive';
+    }
+}
+</script>
+</body>
+</html>

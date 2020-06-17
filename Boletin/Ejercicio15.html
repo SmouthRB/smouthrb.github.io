@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio15</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+        canvas{
+            border: 1px solid black;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background-color: blue;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+        }
+
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <canvas width="300" height="500" id="tabla">
+
+    </canvas>
+    <div >
+        <button onclick="empezarJuego()">Empezar</button>
+        <button onclick="pararJuego()">Parar</button>
+        <button onclick="mas()">Mas rapido</button>
+        <button onclick="reiniciar()">Reiniciar Velocidad</button>
+        <button onclick="menos()">mas lento</button>
+    </div>
+    <a href="Boletin.html">Volver atras</a>
+</body>
+<script>
+    var velocidad = 1;
+    var lienzo = document.getElementById('tabla');
+    var ctx = lienzo.getContext('2d');
+    var x = 150;
+    var y = 250;
+    var w = 10;
+    var h = 0;
+    var MovimientoX = false;
+    var MovimientoY = false;
+    var variablePararJuego = false;
+    var contador = 0;
+
+    function crearCirculo(){
+    ctx.arc(x,y,w,h,(Math.PI/180)*360,true);
+    ctx.fillStyle = "violet";
+    ctx.fill();
+    ctx.stroke();
+    crearMesa();
+    }
+    function crearMesa(){
+
+        ctx.beginPath();
+
+    }
+function empezarJuego(){
+    contador++;
+    setInterval(function timer(){
+        //Limpiar canvas
+        limpiar();
+        //Derecha e Izquierda
+        if(MovimientoX == false){
+            x-=velocidad
+            if(x == 20){
+                MovimientoX = true;
+            }
+        }
+        if(MovimientoX == true ){
+            x+=velocidad
+            if(x == 280){
+                MovimientoX = false;
+            }
+        }
+        //Arriba y Abajo
+        if(MovimientoY == false){
+            y-=velocidad
+            if(y == 20){
+                MovimientoY = true;
+            }
+        }
+        if(MovimientoY == true ){
+            y+=velocidad
+            if(y == 480){
+                MovimientoY = false;
+            }
+        }
+        if(variablePararJuego == true){
+            MovimientoX = 2;
+            MovimientoY = 2;
+            variablePararJuego = false;
+            limpiar();
+        }else if(contador%2 == 0){
+            MovimientoX = false;
+            MovimientoY = false;
+            x = 150;
+            y = 250;
+        }
+    },1)
+}
+    function limpiar(){
+        ctx.clearRect(0,0,300,500);
+        crearCirculo();
+    }
+    function pararJuego(){
+        variablePararJuego = true;
+    }
+    function mas(){
+        ++velocidad
+    }
+    function menos() {
+       if(velocidad!=1){
+            --velocidad
+        }
+    }
+    function reiniciar(){
+        velocidad = 1
+    }
+</script>
+</html>

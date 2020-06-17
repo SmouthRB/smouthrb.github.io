@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 4</title>
+
+	<html lang="es">
+	<style type="text/css">
+		
+		.principal{
+
+		}
+
+		.noticias{
+
+		}
+
+		.noticias nav.principal{
+
+		}
+
+		.resaltado{
+			font-size: 1.2em;
+			font-weight: bold;
+			background-color: aquamarine;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="principal">
+			<ul>
+				<li> Inicio </li>
+				<li> Portfolio </li>
+				<li> Servicios </li>
+			</ul>
+		</nav>
+		</header>
+	<!-- Sección principal-->
+	<main>
+		<section class="noticias">
+			<nav class="principal">
+				<ul id="lista">
+					<li> Articulo 1 </li>
+					<li> Articulo 2 </li>
+					<li> Articulo 3 </li>
+				</ul>
+			</nav>
+			<article>
+				<h2> Titular </h2>
+				<p> Desarrollo de la noticia</p>
+			</article>
+		</section>
+	</main>
+	<!-- Pie de pagina -->
+	<footer>
+		<small><a href="#"> Enlace a </a></small>
+	</footer>
+    <p id="elemento"></p>
+	<a href="Boletin.html">Volver al principal</a>
+</body>
+<script>
+document.getElementById("elemento").textContent = document.body.querySelector("ul[id='lista'] li").textContent;
+</script>
+</html>
