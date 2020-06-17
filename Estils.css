@@ -61,7 +61,9 @@ div.row + div.row{
 	margin-top: 1em;
 	padding-top: 1em;
 }
-
+div.row.noBorde{
+	border-top:none !important
+}
 
 /* footer*/
 .footer{
